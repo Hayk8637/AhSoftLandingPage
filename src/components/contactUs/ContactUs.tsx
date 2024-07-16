@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './style.css';
 import img from './burger_sandwich_PNG4135 2.png';
@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 const ContactUs: React.FC = () => {
   const [email, setEmail] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+  const { i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +22,13 @@ const ContactUs: React.FC = () => {
         });
     }
   };
-    const { t } = useTranslation("global");
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); 
+    if (savedLanguage) {
+      i18n.changeLanguage(savedLanguage); 
+    }
+  }, [i18n]);
+
 
 
   return (
