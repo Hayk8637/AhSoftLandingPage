@@ -1,8 +1,10 @@
 import './style.css'
-import img from './Screenshot 2024-06-27 115449.png'
+import img from './Picsart_24-07-28_02-00-45-834.jpg'
 const Banner:React.FC = () => {
     return <div className="banner">
-            <img src={img} alt="ww"/>
+            <div className='text'>
+
+            </div>
         </div>;
 }
 
